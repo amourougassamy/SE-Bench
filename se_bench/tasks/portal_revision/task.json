@@ -1,0 +1,17 @@
+{
+  "id": "portal-revision-001",
+  "version": "0.1.0",
+  "status": "development_fixture_not_expert_validated",
+  "title": "Assess and coordinate a revised portal frame",
+  "units": "N-m-Pa",
+  "max_tool_calls": 100,
+  "solver_timeout_s": 30,
+  "criteria": {"max_roof_horizontal_displacement_m": 0.0045},
+  "required_scope": "Linear elastic first-order service assessment only; strength, stability, connections and code compliance are not established.",
+  "deliverables": ["model.json", "results/<run_id>.json", "drawing.svg", "report.json", "report.md"],
+  "review_event": {
+    "id": "engineer-revision-B",
+    "message": "Revise the clear frame span from 6 m to 8 m by moving right-side nodes 2 and 4 to x=8 m. Increase the downward beam line load from 20000 to 30000 N/m. Use revision B. Retain both section properties, 4 m height, fixed supports, and the existing +20000 N horizontal load at node 4. Reanalyze, assess the unchanged 0.0045 m maximum absolute roof horizontal-displacement limit, and update the schematic and report. If the criterion fails, report that failure; do not change sections or relax the limit.",
+    "changes": {"revision": "B", "nodes": {"2": [8.0, 0.0], "4": [8.0, 4.0]}, "uniform": {"3": -30000.0}}
+  }
+}

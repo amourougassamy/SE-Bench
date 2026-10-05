@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "se-bench"
+version = "0.1.0"
+description = "End-to-end structural engineering workflow benchmark infrastructure"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+solver = [
+  "openseespy==3.7.1.2",
+  "openseespylinux==3.7.1.2; sys_platform == 'linux'",
+]
+
+[project.scripts]
+se-bench = "se_bench.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["se_bench*"]
+
+[tool.setuptools.package-data]
+se_bench = ["tasks/**/*.json", "tasks/**/*.md", "tasks/**/*.svg"]
